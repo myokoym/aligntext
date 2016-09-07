@@ -12,6 +12,10 @@ option_parser = OptionParser.new
 option_parser.on("-s", "--separator [String]") do |separator|
   options[:separator] = separator
 end
+option_parser.on("-v", "--version") do |separator|
+  puts Aligntext::VERSION
+  exit
+end
 option_parser.parse!(ARGV)
 
 formatter = Aligntext::Formatter.new(options)
