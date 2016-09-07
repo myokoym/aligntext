@@ -10,7 +10,7 @@ option_parser.on("-s", "--separator [String]") do |separator|
 end
 option_parser.parse!(ARGV)
 
-separator = options[:separator] || ":"
+separator = options[:separator] || " "
 max_index = 0
 
 source_lines = ARGF.to_a
