@@ -9,7 +9,7 @@ require "aligntext"
 require "optparse"
 options = {}
 option_parser = OptionParser.new
-option_parser.on("-s", "--separator [String]") do |separator|
+option_parser.on("-s", "--separator SEPARATOR") do |separator|
   options[:separator] = separator
 end
 option_parser.on("-v", "--version") do |separator|
