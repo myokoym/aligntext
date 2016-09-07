@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-#require "aligntext"
+base_dir = File.expand_path("../..", __FILE__)
+lib_dir = File.join(base_dir, "lib")
+$LOAD_PATH.unshift(lib_dir)
+
+require "aligntext"
 
 require "optparse"
 options = {}
@@ -10,28 +14,5 @@ option_parser.on("-s", "--separator [String]") do |separator|
 end
 option_parser.parse!(ARGV)
 
-separator = options[:separator] || " "
-max_index = 0
-
-source_lines = ARGF.to_a
-
-source_lines.each do |line|
-  index = line.index(separator)
-  next unless index
-  if index > max_index
-    max_index = index
-  end
-end
-
-source_lines.each do |line|
-  index = line.index(separator)
-  unless index
-    puts line
-    next
-  end
-  if index < max_index
-    puts line.insert(index, " " * (max_index - index))
-  else
-    puts line
-  end
-end
+formatter = Aligntext::Formatter.new(options)
+puts formatter.align(ARGF.read)
