@@ -1,4 +1,4 @@
-# Aligntext
+# Aligntext [![Gem Version](https://badge.fury.io/rb/aligntext.svg)](https://badge.fury.io/rb/aligntext)
 
 Yet another "column" command in Ruby.
 
